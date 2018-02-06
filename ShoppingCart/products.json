@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Ultraboost",
+        "image": "ultraboost.jpg",
+        "price": "$180"
+    },
+    {
+        "title": "EQT Support Adv",
+        "image": "eqt.jpg",
+        "price": "$125"
+    },
+    {
+        "title": "Alpha Bounce",
+        "image": "AlphaBounce.jpg",
+        "price": "$110"
+    },
+    {
+        "title": "Prophere",
+        "image": "prophere.jpg",
+        "price": "$280"
+    },
+    {
+        "title": "Primeknit",
+        "image": "Primeknit.jpg",
+        "price": "$120"
+    },
+    {
+        "title": "Dame 4",
+        "image": "Dame4.jpg",
+        "price": "$115"
+    },
+]

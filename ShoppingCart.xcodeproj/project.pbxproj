@@ -15,6 +15,8 @@
 		B82800BA202935AD00E829E7 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800B9202935AD00E829E7 /* CartController.swift */; };
 		B82800BD2029362000E829E7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800BC2029362000E829E7 /* CoreDataStack.swift */; };
 		B82800C0202936C900E829E7 /* MakeInventory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B82800BE202936C900E829E7 /* MakeInventory.xcdatamodeld */; };
+		B8C1FDA820297AFD00F500AE /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1FDA720297AFD00F500AE /* ProductCell.swift */; };
+		B8C1FDAA2029814500F500AE /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C1FDA92029814500F500AE /* products.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B82800B9202935AD00E829E7 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		B82800BC2029362000E829E7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B82800BF202936C900E829E7 /* MakeInventory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MakeInventory.xcdatamodel; sourceTree = "<group>"; };
+		B8C1FDA720297AFD00F500AE /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		B8C1FDA92029814500F500AE /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				B82800C32029373600E829E7 /* Controller */,
 				B82800BB202935C500E829E7 /* Supporting Files */,
 				B82800B32029354700E829E7 /* Info.plist */,
+				B8C1FDA92029814500F500AE /* products.json */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				B82800AB2029354700E829E7 /* Main.storyboard */,
+				B8C1FDA720297AFD00F500AE /* ProductCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82800B22029354700E829E7 /* LaunchScreen.storyboard in Resources */,
+				B8C1FDAA2029814500F500AE /* products.json in Resources */,
 				B82800AF2029354700E829E7 /* Assets.xcassets in Resources */,
 				B82800AD2029354700E829E7 /* Main.storyboard in Resources */,
 			);
@@ -180,6 +187,7 @@
 				B82800AA2029354700E829E7 /* AddProductsController.swift in Sources */,
 				B82800BA202935AD00E829E7 /* CartController.swift in Sources */,
 				B82800A82029354700E829E7 /* AppDelegate.swift in Sources */,
+				B8C1FDA820297AFD00F500AE /* ProductCell.swift in Sources */,
 				B82800BD2029362000E829E7 /* CoreDataStack.swift in Sources */,
 				B82800C0202936C900E829E7 /* MakeInventory.xcdatamodeld in Sources */,
 			);
