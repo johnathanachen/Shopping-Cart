@@ -12,6 +12,9 @@ import CoreData
 class AddProductsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var products = [Products]()
+    var cartItem = [Cart]()
+    
+    var selectedImage = ""
     
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,7 +25,30 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         readJson()
     }
+    
     @IBAction func addToCartButton(_ sender: UIButton) {
+        addProduct()
+    }
+    
+    func addProduct() {
+        print("Trying to save product")
+        
+        let context = CoreDataStack.shared.presistentContainer.viewContext
+        
+        let cartProduct = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
+        
+        
+        cartProduct.setValue(selectedImage, forKey: "image")
+        cartProduct.setValue(titleLabel.text, forKey: "title")
+        cartProduct.setValue(priceLabel.text, forKey: "price")
+        cartProduct.setValue(1, forKey: "quantity")
+        
+        // Perform Save
+        do {
+            try context.save()
+        } catch let saveError {
+            print("Error saving \(saveError)")
+        }
     }
     
     func readJson() {
@@ -59,6 +85,7 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let product = products[indexPath.row]
         
         cell.imageLabel.image = UIImage(named: product.image)
+        selectedImage = product.image
         cell.titleLabel.text = product.title
         cell.priceLabel.text = product.price
         
