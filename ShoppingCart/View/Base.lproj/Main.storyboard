@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8uA-Nv-mvQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Products-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AddProductsController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZU9-HZ-7sh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="125" id="UVJ-9Q-Glu">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UVJ-9Q-Glu" id="TWk-xB-RR9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O2n-uZ-l2Y">
+                                                    <rect key="frame" x="15" y="7" width="158.5" height="110.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycf-Re-rvP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zRb-1b-hEd">
+                                                            <rect key="frame" x="120" y="0.0" width="38.5" height="51"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1T-hj-Icm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETq-aj-k87">
+                                                                    <rect key="frame" x="0.0" y="30.5" width="38.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Do-tA-I9l">
+                                                    <rect key="frame" x="271" y="80.5" width="85" height="35"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselectedHeart" translatesAutoresizingMaskIntoConstraints="NO" id="ddA-wG-zDz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XD-LA-aTx">
+                                                            <rect key="frame" x="50" y="0.0" width="35" height="35"/>
+                                                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" image="addButton">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="addToCartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hk3-7w-8b5"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Do-tA-I9l" firstAttribute="top" secondItem="O2n-uZ-l2Y" secondAttribute="bottom" constant="-37" id="JKE-Bc-1BS"/>
+                                                <constraint firstItem="O2n-uZ-l2Y" firstAttribute="top" secondItem="TWk-xB-RR9" secondAttribute="top" constant="7" id="g2r-MC-xtm"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Do-tA-I9l" secondAttribute="bottom" constant="9" id="s9o-Pf-hnY"/>
+                                                <constraint firstItem="O2n-uZ-l2Y" firstAttribute="leading" secondItem="TWk-xB-RR9" secondAttribute="leading" constant="15" id="ste-6r-imo"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Do-tA-I9l" secondAttribute="trailing" constant="19" id="yCu-dU-Cqk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="aFA-hB-E3c"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UsH-Q6-yAg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZU9-HZ-7sh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CTz-FE-wV8"/>
+                            <constraint firstItem="ZU9-HZ-7sh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="byQ-2b-zKP"/>
+                            <constraint firstItem="ZU9-HZ-7sh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="j0d-TH-JT0"/>
+                            <constraint firstItem="ZU9-HZ-7sh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="txH-CB-L5R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Products" image="product" id="jHB-AV-9pp"/>
+                    <navigationItem key="navigationItem" title="Products" id="xjE-dQ-xvv">
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="GE2-VL-RIi"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageLabel" destination="ycf-Re-rvP" id="CYc-VN-lyh"/>
+                        <outlet property="priceLabel" destination="ETq-aj-k87" id="Nyh-sA-r9l"/>
+                        <outlet property="titleLabel" destination="p1T-hj-Icm" id="bzp-vw-BaR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690" y="888"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="hXi-XX-g6l">
+            <objects>
+                <viewController id="rdZ-Au-YZr" customClass="CartController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6MV-Pz-hf2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dQ7-xB-B8v"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart" id="Nit-KR-hKZ"/>
+                    <navigationItem key="navigationItem" title="Cart" id="cj2-tm-MF5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rcx-gn-Ccv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="887"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rMM-Ia-gjb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8uA-Nv-mvQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b38-ub-iUP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0sJ-qJ-Oqm"/>
+                        <segue destination="rdZ-Au-YZr" kind="relationship" relationship="viewControllers" id="5uO-Ux-hmG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWE-jY-axx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="addButton" width="35" height="35"/>
+        <image name="cart" width="27" height="25"/>
+        <image name="product" width="35" height="35"/>
+        <image name="unselectedHeart" width="40" height="35"/>
+    </resources>
+</document>
