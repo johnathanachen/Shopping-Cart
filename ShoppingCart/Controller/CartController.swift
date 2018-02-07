@@ -33,7 +33,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidLoad() {
-        fetchProductsAddedToCart()
+//        fetchProductsAddedToCart()
     }
     
     

@@ -27,7 +27,7 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func addToCartButton(_ sender: UIButton) {
-        addProduct()
+//        addProduct()
     }
     
     func addProduct() {
