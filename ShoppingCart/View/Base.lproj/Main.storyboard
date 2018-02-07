@@ -65,7 +65,7 @@
                                                                 </attributedString>
                                                             </state>
                                                             <connections>
-                                                                <action selector="addToCartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hk3-7w-8b5"/>
+                                                                <action selector="addItemToCart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d7S-Zd-ltd"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -109,6 +109,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButtonLabel" destination="6XD-LA-aTx" id="T82-j5-Sui"/>
                                             <outlet property="imageLabel" destination="ycf-Re-rvP" id="yl1-Zs-xy5"/>
                                             <outlet property="priceLabel" destination="ETq-aj-k87" id="vYs-in-f6f"/>
                                             <outlet property="titleLabel" destination="p1T-hj-Icm" id="llN-mD-itl"/>
@@ -343,6 +344,6 @@
         <image name="unselectedHeart" width="40" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sj0-eB-tQC"/>
+        <segue reference="FTn-pV-r6y"/>
     </inferredMetricsTieBreakers>
 </document>

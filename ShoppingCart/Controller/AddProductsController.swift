@@ -9,46 +9,39 @@
 import UIKit
 import CoreData
 
+protocol AddProductsControllerDelegate {
+    func didAddProduct(product: Cart)
+}
+
 class AddProductsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var delegate: AddProductsControllerDelegate?
+    
     var products = [Products]()
-    var cartItem = [Cart]()
-    
-    var selectedImage = ""
-    
-    @IBOutlet weak var imageLabel: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
-    let images = [#imageLiteral(resourceName: "ultraboost"),#imageLiteral(resourceName: "prophere"),#imageLiteral(resourceName: "eqt"),#imageLiteral(resourceName: "AlphaBounce"),#imageLiteral(resourceName: "Dame4"),#imageLiteral(resourceName: "Primeknit")]
+    var coreDataStack = CoreDataStack.instance
+
     
     override func viewDidLoad() {
         readJson()
     }
     
-    @IBAction func addToCartButton(_ sender: UIButton) {
-//        addProduct()
-    }
-    
-    func addProduct() {
-        print("Trying to save product")
+    @IBAction func addItemToCart(_ sender: UIButton) {
         
-        let context = CoreDataStack.shared.presistentContainer.viewContext
+        let title = products[sender.tag].title
+        let image = products[sender.tag].image
+        let price = products[sender.tag].price
+        let quantity = 1
+        print(title)
+        print(image)
+        print(price)
         
-        let cartProduct = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
-        
-        
-        cartProduct.setValue(selectedImage, forKey: "image")
-        cartProduct.setValue(titleLabel.text, forKey: "title")
-        cartProduct.setValue(priceLabel.text, forKey: "price")
-        cartProduct.setValue(1, forKey: "quantity")
-        
-        // Perform Save
-        do {
-            try context.save()
-        } catch let saveError {
-            print("Error saving \(saveError)")
-        }
+//        let item = Cart(context: coreDataStack.privateContext)
+//        item.title = title
+//        item.image = image
+//        item.price = price
+//        item.quantity = Int32(quantity)
+//
+//        coreDataStack.saveTo(context: coreDataStack.privateContext)
     }
     
     func readJson() {
@@ -85,17 +78,17 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let product = products[indexPath.row]
         
         cell.imageLabel.image = UIImage(named: product.image)
-        selectedImage = product.image
         cell.titleLabel.text = product.title
         cell.priceLabel.text = product.price
+        cell.addButtonLabel.tag = indexPath.row
         
         return cell
     }
     
+    
+    
  
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+    
     
     
     

@@ -9,28 +9,32 @@
 import UIKit
 import CoreData
 
-class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductsControllerDelegate {
     
     var cartItem = [Cart]()
     
-    // Perform fetch
-    
-    private func fetchProductsAddedToCart() {
-        
-        let context = CoreDataStack.shared.presistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
-        
-        do {
-            let cartItems = try context.fetch(fetchRequest)
-            cartItems.forEach({ (item) in
-                print(item.title ?? "")
-            })
-        } catch let fetchingError {
-            print("Error fetching core data: \(fetchingError)")
-        }
-        
+    func didAddProduct(product: Cart) {
+        cartItem.append(product)
     }
+    
+    
+    // Perform fetch
+//    private func fetchProductsAddedToCart() {
+//
+//        let context = CoreDataStack.instance.presistentContainer.viewContext
+//
+//        let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
+//
+//        do {
+//            let cartItems = try context.fetch(fetchRequest)
+//            cartItems.forEach({ (item) in
+//                print(item.title ?? "")
+//            })
+//        } catch let fetchingError {
+//            print("Error fetching core data: \(fetchingError)")
+//        }
+//
+//    }
     
     override func viewDidLoad() {
 //        fetchProductsAddedToCart()

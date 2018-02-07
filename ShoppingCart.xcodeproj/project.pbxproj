@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B81030AD202A913E00291586 /* Cart+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81030AC202A913E00291586 /* Cart+Extensions.swift */; };
 		B82800A82029354700E829E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800A72029354700E829E7 /* AppDelegate.swift */; };
 		B82800AA2029354700E829E7 /* AddProductsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800A92029354700E829E7 /* AddProductsController.swift */; };
 		B82800AD2029354700E829E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82800AB2029354700E829E7 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B81030AC202A913E00291586 /* Cart+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cart+Extensions.swift"; sourceTree = "<group>"; };
 		B82800A42029354700E829E7 /* ShoppingCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82800A72029354700E829E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82800A92029354700E829E7 /* AddProductsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				B82800BB202935C500E829E7 /* Supporting Files */,
 				B82800B32029354700E829E7 /* Info.plist */,
 				B8C1FDA92029814500F500AE /* products.json */,
+				B81030AC202A913E00291586 /* Cart+Extensions.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				B82800BA202935AD00E829E7 /* CartController.swift in Sources */,
 				B82800A82029354700E829E7 /* AppDelegate.swift in Sources */,
 				B8C1FDA820297AFD00F500AE /* ProductCell.swift in Sources */,
+				B81030AD202A913E00291586 /* Cart+Extensions.swift in Sources */,
 				B82800BD2029362000E829E7 /* CoreDataStack.swift in Sources */,
 				B82800C0202936C900E829E7 /* MakeInventory.xcdatamodeld in Sources */,
 			);
