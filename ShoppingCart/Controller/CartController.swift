@@ -24,14 +24,12 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Perform fetch
+        // Perform fetch from Core Data
         let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
-        
         
         do {
             let result = try stack.viewContext.fetch(fetchRequest)
             self.cartItem = result
-            tableview.reloadData()
         } catch let error {
             print(error)
         }
@@ -66,7 +64,8 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     // TODO: update page when clicked
-    // TODO: delete items
+    
+    // Delete items
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
             let item = self.cartItem[indexPath.row]
@@ -78,6 +77,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             do {
                 try context.save()
+                tableView.reloadData()
             } catch let deleteError {
                 print("Failed to delete cart item", deleteError)
             }
