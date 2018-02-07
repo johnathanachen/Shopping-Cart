@@ -254,6 +254,9 @@
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cartTableView" destination="SyG-3U-iGC" id="7Vp-ey-ZXB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcx-gn-Ccv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

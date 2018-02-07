@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate, AddProductsControllerDelegate {
+class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource,UITabBarControllerDelegate, AddProductsControllerDelegate {
     
     var stack = CoreDataStack.instance
     
@@ -35,8 +35,9 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBOutlet weak var cartTableView: UITableView!
     override func viewDidLoad() {
-       self.tabBarController?.delegate = self
+        self.tabBarController?.delegate = self
     }
     
     
@@ -63,7 +64,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
         
     }
-    // TODO: update page when clicked
+    
     
     // Delete items
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -85,6 +86,13 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return [deleteAction]
     }
     
+    // update page bar button item clicked
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 1 {
+            cartTableView.reloadData()
+        }
+    }
     
     
 }
