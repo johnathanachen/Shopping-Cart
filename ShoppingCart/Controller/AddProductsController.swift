@@ -20,7 +20,6 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     var products = [Products]()
     var cartItems = [Cart]()
     var coreDataStack = CoreDataStack.instance
-
     
     override func viewDidLoad() {
         readJson()
@@ -32,17 +31,18 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let image = products[sender.tag].image
         let price = products[sender.tag].price
         let quantity = 1
-        print(title)
-        print(image)
-        print(price)
         
         let item = Cart(context: coreDataStack.privateContext)
+        
+        // TODO: check if item already exist
+    
         item.title = title
         item.image = image
         item.price = price
         item.quantity = Int32(quantity)
-
+        
         coreDataStack.saveTo(context: coreDataStack.privateContext)
+        
     }
     
     func readJson() {
@@ -83,8 +83,12 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         cell.priceLabel.text = product.price
         cell.addButtonLabel.tag = indexPath.row
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell
     }
+    
+
     
     
     

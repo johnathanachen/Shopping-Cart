@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductsControllerDelegate {
+class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate, AddProductsControllerDelegate {
     
     var stack = CoreDataStack.instance
     
     var cartItem = [Cart]()
+
+    let tableview = UITableView()
     
     func didAddProduct(product: Cart) {
         cartItem.append(product)
@@ -25,17 +27,18 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Perform fetch
         let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
         
+        
         do {
             let result = try stack.viewContext.fetch(fetchRequest)
             self.cartItem = result
-            
+            tableview.reloadData()
         } catch let error {
             print(error)
         }
     }
     
     override func viewDidLoad() {
-        
+       self.tabBarController?.delegate = self
     }
     
     
@@ -57,7 +60,31 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.priceLabel.text = cartItem.price
         cell.quantityLabel.text = String(cartItem.quantity)
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell
         
     }
+    // TODO: update page when clicked
+    // TODO: delete items
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
+            let item = self.cartItem[indexPath.row]
+            self.cartItem.remove(at: indexPath.row)
+            self.tableview.deleteRows(at: [indexPath], with: .automatic)
+            
+            let context = self.stack.viewContext
+            context.delete(item)
+            
+            do {
+                try context.save()
+            } catch let deleteError {
+                print("Failed to delete cart item", deleteError)
+            }
+        }
+        return [deleteAction]
+    }
+    
+    
+    
 }
