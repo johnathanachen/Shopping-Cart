@@ -18,6 +18,7 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     var delegate: AddProductsControllerDelegate?
     
     var products = [Products]()
+    var cartItems = [Cart]()
     var coreDataStack = CoreDataStack.instance
 
     
@@ -35,13 +36,13 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         print(image)
         print(price)
         
-//        let item = Cart(context: coreDataStack.privateContext)
-//        item.title = title
-//        item.image = image
-//        item.price = price
-//        item.quantity = Int32(quantity)
-//
-//        coreDataStack.saveTo(context: coreDataStack.privateContext)
+        let item = Cart(context: coreDataStack.privateContext)
+        item.title = title
+        item.image = image
+        item.price = price
+        item.quantity = Int32(quantity)
+
+        coreDataStack.saveTo(context: coreDataStack.privateContext)
     }
     
     func readJson() {

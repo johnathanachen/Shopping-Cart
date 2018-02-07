@@ -11,33 +11,31 @@ import CoreData
 
 class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductsControllerDelegate {
     
+    var stack = CoreDataStack.instance
+    
     var cartItem = [Cart]()
     
     func didAddProduct(product: Cart) {
         cartItem.append(product)
     }
-    
-    
-    // Perform fetch
-//    private func fetchProductsAddedToCart() {
-//
-//        let context = CoreDataStack.instance.presistentContainer.viewContext
-//
-//        let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
-//
-//        do {
-//            let cartItems = try context.fetch(fetchRequest)
-//            cartItems.forEach({ (item) in
-//                print(item.title ?? "")
-//            })
-//        } catch let fetchingError {
-//            print("Error fetching core data: \(fetchingError)")
-//        }
-//
-//    }
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Perform fetch
+        let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
+        
+        do {
+            let result = try stack.viewContext.fetch(fetchRequest)
+            self.cartItem = result
+            
+        } catch let error {
+            print(error)
+        }
+    }
     
     override func viewDidLoad() {
-//        fetchProductsAddedToCart()
+        
     }
     
     
@@ -51,10 +49,13 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
+        
         let cartItem = self.cartItem[indexPath.row]
         
-        
-        
+        cell.cartImageView.image = UIImage(named: cartItem.image!)
+        cell.titleLabel.text = cartItem.title
+        cell.priceLabel.text = cartItem.price
+        cell.quantityLabel.text = String(cartItem.quantity)
         
         return cell
         
