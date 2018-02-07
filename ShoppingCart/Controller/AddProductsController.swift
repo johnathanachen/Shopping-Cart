@@ -35,13 +35,37 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let item = Cart(context: coreDataStack.privateContext)
         
         // TODO: check if item already exist
-    
-        item.title = title
-        item.image = image
-        item.price = price
-        item.quantity = Int32(quantity)
+        // fetch context
+        // check if item already exist
+        // change quanity and save context if item exist
+//        let selected = coreDataStack.viewContext.object(with: item.objectID)
         
-        coreDataStack.saveTo(context: coreDataStack.privateContext)
+        let fetch = NSFetchRequest<Cart>(entityName: "Cart")
+//        let pred = NSPredicate(format: "title == %@", item.title!)
+//        fetch.predicate = pred
+        do {
+            let result = try coreDataStack.viewContext.fetch(fetch)
+            result.forEach { (cartItem) in
+                if cartItem.title == title {
+                    cartItem.quantity = cartItem.quantity + 1
+                    print(cartItem)
+                    print("already exist")
+                } else if cartItem.title != title  {
+                    print("dont have yet")
+                    item.title = title
+                    item.image = image
+                    item.price = price
+                    item.quantity = Int32(quantity)
+                }
+            }
+        } catch let error {
+            print(error)
+        }
+        
+
+    
+        coreDataStack.saveTo(context: coreDataStack.viewContext)
+        
         
     }
     
