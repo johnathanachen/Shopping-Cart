@@ -30,9 +30,8 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let title = products[sender.tag].title
         let image = products[sender.tag].image
         let price = products[sender.tag].price
-        let quantity = 1
         
-        let item = Cart(context: coreDataStack.privateContext)
+        
         
         // TODO: check if item already exist
         // fetch context
@@ -41,31 +40,27 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
 //        let selected = coreDataStack.viewContext.object(with: item.objectID)
         
         let fetch = NSFetchRequest<Cart>(entityName: "Cart")
-//        let pred = NSPredicate(format: "title == %@", item.title!)
-//        fetch.predicate = pred
+        let pred = NSPredicate(format: "title == %@", title)
+        fetch.predicate = pred
+        
         do {
             let result = try coreDataStack.viewContext.fetch(fetch)
-            result.forEach { (cartItem) in
-                if cartItem.title == title {
-                    cartItem.quantity = cartItem.quantity + 1
-                    print(cartItem)
-                    print("already exist")
-                } else if cartItem.title != title  {
-                    print("dont have yet")
-                    item.title = title
-                    item.image = image
-                    item.price = price
-                    item.quantity = Int32(quantity)
-                }
+            if result.first?.title == title {
+                result.first?.quantity += Int32(1)
+                print(result.first?.quantity)
+                coreDataStack.saveTo(context: coreDataStack.viewContext)
+            }
+            if result.first?.title != title {
+                let item = Cart(context: coreDataStack.privateContext)
+                item.title = title
+                item.image = image
+                item.price = price
+                item.quantity = Int32(1)
+                coreDataStack.saveTo(context: coreDataStack.privateContext)
             }
         } catch let error {
             print(error)
         }
-        
-
-    
-        coreDataStack.saveTo(context: coreDataStack.viewContext)
-        
         
     }
     

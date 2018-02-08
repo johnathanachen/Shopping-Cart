@@ -13,7 +13,11 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var stack = CoreDataStack.instance
     
-    var cartItem = [Cart]()
+    var cartItem = [Cart]() {
+        didSet {
+            cartTableView.reloadData()
+        }
+    }
 
     let tableview = UITableView()
     
@@ -23,7 +27,10 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        fetchCoreData()
+    }
+    
+    func fetchCoreData() {
         // Perform fetch from Core Data
         let fetchRequest = NSFetchRequest<Cart>(entityName: "Cart")
         
@@ -54,7 +61,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cartItem = self.cartItem[indexPath.row]
         
-        cell.cartImageView.image = UIImage(named: cartItem.image!)
+//        cell.cartImageView.image = UIImage(named: cartItem.image!)
         cell.titleLabel.text = cartItem.title
         cell.priceLabel.text = cartItem.price
         cell.quantityLabel.text = String(cartItem.quantity)

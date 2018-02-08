@@ -15,8 +15,8 @@
 		B82800B22029354700E829E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82800B02029354700E829E7 /* LaunchScreen.storyboard */; };
 		B82800BA202935AD00E829E7 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800B9202935AD00E829E7 /* CartController.swift */; };
 		B82800BD2029362000E829E7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82800BC2029362000E829E7 /* CoreDataStack.swift */; };
-		B82800C0202936C900E829E7 /* MakeInventory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B82800BE202936C900E829E7 /* MakeInventory.xcdatamodeld */; };
 		B84EB303202A62400025035B /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84EB302202A62400025035B /* CartCell.swift */; };
+		B8AE6EDA202BD13400CEC56D /* MakeInventory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8AE6ED8202BD13400CEC56D /* MakeInventory.xcdatamodeld */; };
 		B8C1FDA820297AFD00F500AE /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1FDA720297AFD00F500AE /* ProductCell.swift */; };
 		B8C1FDAA2029814500F500AE /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C1FDA92029814500F500AE /* products.json */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,8 @@
 		B82800B32029354700E829E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B82800B9202935AD00E829E7 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		B82800BC2029362000E829E7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		B82800BF202936C900E829E7 /* MakeInventory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MakeInventory.xcdatamodel; sourceTree = "<group>"; };
 		B84EB302202A62400025035B /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		B8AE6ED9202BD13400CEC56D /* MakeInventory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MakeInventory.xcdatamodel; sourceTree = "<group>"; };
 		B8C1FDA720297AFD00F500AE /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B8C1FDA92029814500F500AE /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B82800BC2029362000E829E7 /* CoreDataStack.swift */,
-				B82800BE202936C900E829E7 /* MakeInventory.xcdatamodeld */,
+				B8AE6ED8202BD13400CEC56D /* MakeInventory.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AE6EDA202BD13400CEC56D /* MakeInventory.xcdatamodeld in Sources */,
 				B82800AA2029354700E829E7 /* AddProductsController.swift in Sources */,
 				B84EB303202A62400025035B /* CartCell.swift in Sources */,
 				B82800BA202935AD00E829E7 /* CartController.swift in Sources */,
@@ -197,7 +198,6 @@
 				B8C1FDA820297AFD00F500AE /* ProductCell.swift in Sources */,
 				B81030AD202A913E00291586 /* Cart+Extensions.swift in Sources */,
 				B82800BD2029362000E829E7 /* CoreDataStack.swift in Sources */,
-				B82800C0202936C900E829E7 /* MakeInventory.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,12 +384,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B82800BE202936C900E829E7 /* MakeInventory.xcdatamodeld */ = {
+		B8AE6ED8202BD13400CEC56D /* MakeInventory.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B82800BF202936C900E829E7 /* MakeInventory.xcdatamodel */,
+				B8AE6ED9202BD13400CEC56D /* MakeInventory.xcdatamodel */,
 			);
-			currentVersion = B82800BF202936C900E829E7 /* MakeInventory.xcdatamodel */;
+			currentVersion = B8AE6ED9202BD13400CEC56D /* MakeInventory.xcdatamodel */;
 			path = MakeInventory.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
