@@ -20,10 +20,13 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     var products = [Products]()
     var cartItems = [Cart]()
     var coreDataStack = CoreDataStack.instance
+ 
+    var likeButtonToggle: Bool = false
     
     override func viewDidLoad() {
         readJson()
     }
+    
     
     @IBAction func addItemToCart(_ sender: UIButton) {
         
@@ -31,14 +34,8 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let image = products[sender.tag].image
         let price = products[sender.tag].price
         
-        
-        
-        // TODO: check if item already exist
-        // fetch context
-        // check if item already exist
-        // change quanity and save context if item exist
-//        let selected = coreDataStack.viewContext.object(with: item.objectID)
-        
+        // TODO: update cart UI to reflect saved data
+
         let fetch = NSFetchRequest<Cart>(entityName: "Cart")
         let pred = NSPredicate(format: "title == %@", title)
         fetch.predicate = pred
@@ -92,17 +89,33 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.products.count
     }
-
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        likeButtonToggle = !likeButtonToggle
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
+        
+        cell.selectionStyle = .none
         
         cell.imageLabel.image = UIImage(named: product.image)
         cell.titleLabel.text = product.title
         cell.priceLabel.text = product.price
         cell.addButtonLabel.tag = indexPath.row
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        likeButtonToggle = cell.likeButtonLabel.isSelected == false
+        
+        if cell.likeButtonLabel.isSelected == true {
+            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "selectedHeart"), for: .normal)
+        } else if cell.likeButtonLabel.isSelected == false {
+            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "unselectedHeart"), for: .normal)
+        }
+        
+//        cell.likeButtonLabel.setImage(UIImage(named:(likeButtonToggle ? "selectedHeart" : "unselectedHeart")), for: .normal)
+        
+
         
         return cell
     }

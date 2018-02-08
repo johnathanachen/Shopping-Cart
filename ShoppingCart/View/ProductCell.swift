@@ -14,6 +14,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addButtonLabel: UIButton!
+    @IBOutlet weak var likeButtonLabel: UIButton!
     
 
     override func awakeFromNib() {

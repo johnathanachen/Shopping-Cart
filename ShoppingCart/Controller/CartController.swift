@@ -23,8 +23,9 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func didAddProduct(product: Cart) {
         cartItem.append(product)
+        
     }
-  
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCoreData()
@@ -61,7 +62,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cartItem = self.cartItem[indexPath.row]
         
-//        cell.cartImageView.image = UIImage(named: cartItem.image!)
+        cell.cartImageView.image = UIImage(named: cartItem.image!)
         cell.titleLabel.text = cartItem.title
         cell.priceLabel.text = cartItem.price
         cell.quantityLabel.text = String(cartItem.quantity)
