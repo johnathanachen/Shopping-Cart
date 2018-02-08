@@ -104,16 +104,15 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         cell.titleLabel.text = product.title
         cell.priceLabel.text = product.price
         cell.addButtonLabel.tag = indexPath.row
+
         
-        likeButtonToggle = cell.likeButtonLabel.isSelected == false
+//        if cell.likeButtonLabel.isSelected == true {
+//            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "selectedHeart"), for: .normal)
+//        } else if cell.likeButtonLabel.isSelected == false {
+//            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "unselectedHeart"), for: .normal)
+//        }
         
-        if cell.likeButtonLabel.isSelected == true {
-            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "selectedHeart"), for: .normal)
-        } else if cell.likeButtonLabel.isSelected == false {
-            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "unselectedHeart"), for: .normal)
-        }
         
-//        cell.likeButtonLabel.setImage(UIImage(named:(likeButtonToggle ? "selectedHeart" : "unselectedHeart")), for: .normal)
         
 
         
