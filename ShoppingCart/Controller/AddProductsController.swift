@@ -15,7 +15,7 @@ protocol AddProductsControllerDelegate {
     func didAddProduct(product: Cart)
 }
 
-class AddProductsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddProductsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
     
     var delegate: AddProductsControllerDelegate?
     
@@ -26,10 +26,14 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     
     var likeButtonToggle: Bool = false
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.reloadInputViews()
+        coreDataStack.viewContext.refreshAllObjects()
+        cartBadge()
+    }
     
     override func viewDidLoad() {
-        
+        tabBarController?.delegate = self
         cartBadge()
         readJson()
     }
@@ -148,18 +152,8 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         cell.priceLabel.text = product.price
         cell.addButtonLabel.tag = indexPath.row
 
-        
-
-        
         return cell
     }
-    
-
-    
-    
-    
- 
-    
     
     
     
