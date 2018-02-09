@@ -34,16 +34,31 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         readJson()
     }
     
-    // set cart bar button badge count
+    //  set cart bar button badge count
     func cartBadge() {
         let cartImage = UIImage(named: "cart")
         let customCartButton = UIButton()
         customCartButton.setImage(cartImage, for: .normal)
         let cartBarButtonItem = BBBadgeBarButtonItem(customUIButton: customCartButton)
-        cartBarButtonItem?.badgeValue = "1"
+
+        let fetch = NSFetchRequest<Cart>(entityName: "Cart")
+        do {
+            let result = try coreDataStack.viewContext.fetch(fetch)
+            
+            // Update cart badge UI to reflect items in cart
+            var count = 0
+            result.forEach { (item) in
+                count += Int(item.quantity)
+            }
+            cartBarButtonItem?.badgeValue = String(count)
+        } catch {
+            print("error fetching coredata")
+        }
+
         cartBarButtonItem?.badgeTextColor = UIColor.white
         self.navigationItem.rightBarButtonItem = cartBarButtonItem
-        self.tabBarItem.badgeValue = "6"
+        print("upcount")
+
     }
     
   
@@ -58,13 +73,18 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let pred = NSPredicate(format: "title == %@", title)
         fetch.predicate = pred
         
+        
+        
         do {
+            // increase quanity count for existing items
+            
             let result = try coreDataStack.viewContext.fetch(fetch)
             if result.first?.title == title {
                 result.first?.quantity += Int32(1)
-                print(result.first?.quantity)
                 coreDataStack.saveTo(context: coreDataStack.viewContext)
             }
+            
+            // increase quanity count for new items
             if result.first?.title != title {
                 let item = Cart(context: coreDataStack.privateContext)
                 item.title = title
@@ -76,6 +96,11 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         } catch let error {
             print(error)
         }
+        
+        cartBadge()
+        navigationController?.reloadInputViews()
+        coreDataStack.viewContext.refreshAllObjects()
+        
         
     }
     
@@ -123,14 +148,6 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         cell.priceLabel.text = product.price
         cell.addButtonLabel.tag = indexPath.row
 
-        
-//        if cell.likeButtonLabel.isSelected == true {
-//            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "selectedHeart"), for: .normal)
-//        } else if cell.likeButtonLabel.isSelected == false {
-//            cell.likeButtonLabel.setImage(#imageLiteral(resourceName: "unselectedHeart"), for: .normal)
-//        }
-        
-        
         
 
         

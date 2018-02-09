@@ -140,7 +140,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="adidasLogo" id="M6c-gr-81j">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="cart" id="GE2-VL-RIi">
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="GE2-VL-RIi" customClass="BBBadgeBarButtonItem">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="rdZ-Au-YZr" kind="show" id="sj0-eB-tQC"/>
@@ -263,9 +263,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="adidasLogo" id="PRQ-rY-Sdh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" id="CFc-yS-MQJ">
-                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cartTableView" destination="SyG-3U-iGC" id="7Vp-ey-ZXB"/>
@@ -351,7 +348,7 @@
     </scenes>
     <resources>
         <image name="adidasLogo" width="35" height="24"/>
-        <image name="cart" width="27" height="25"/>
+        <image name="cart" width="27" height="26"/>
         <image name="product" width="25" height="25"/>
         <image name="unselectedHeart" width="40" height="35"/>
     </resources>
