@@ -155,6 +155,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tabBarIndex = tabBarController.selectedIndex
         if tabBarIndex == 1 {
             cartTableView.reloadData()
+            stack.viewContext.refreshAllObjects()
         }
     }
     

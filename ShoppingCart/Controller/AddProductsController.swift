@@ -30,25 +30,21 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         
-        let cartImage = UIImage(named: "cart")
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: nil, action: nil)
-        
-//        let carBarButton = BadgeBarButtonItem(image: "cart", target: nil, action: #selector(cartButtonTapped))!
-//        self.navigationItem.rightBarButtonItem = carBarButton
-//        let lastBarButton = rightBarButtons?.last
-
-        
-//
-//        let cartBarButtonItem = BBBadgeBarButtonItem(customUIButton: customCartButton)
-//        cartBarButtonItem?.badgeValue = "1"
-//        cartBarButtonItem?.badgeTextColor = UIColor.white
-
-        
+        cartBadge()
         readJson()
-    
     }
     
-    
+    // set cart bar button badge count
+    func cartBadge() {
+        let cartImage = UIImage(named: "cart")
+        let customCartButton = UIButton()
+        customCartButton.setImage(cartImage, for: .normal)
+        let cartBarButtonItem = BBBadgeBarButtonItem(customUIButton: customCartButton)
+        cartBarButtonItem?.badgeValue = "1"
+        cartBarButtonItem?.badgeTextColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = cartBarButtonItem
+        self.tabBarItem.badgeValue = "6"
+    }
     
   
     
@@ -57,8 +53,6 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
         let title = products[sender.tag].title
         let image = products[sender.tag].image
         let price = products[sender.tag].price
-        
-        // TODO: update cart UI to reflect saved data
 
         let fetch = NSFetchRequest<Cart>(entityName: "Cart")
         let pred = NSPredicate(format: "title == %@", title)
