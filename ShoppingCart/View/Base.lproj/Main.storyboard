@@ -47,7 +47,7 @@
                                                     <rect key="frame" x="286" y="88" width="70" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6XD-LA-aTx">
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6XD-LA-aTx">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -104,6 +104,7 @@
                                                 <constraint firstItem="rwE-CU-aoX" firstAttribute="leading" secondItem="ycf-Re-rvP" secondAttribute="trailing" constant="17" id="NxO-hE-xRt"/>
                                                 <constraint firstItem="0QG-Is-1WR" firstAttribute="top" secondItem="rwE-CU-aoX" secondAttribute="bottom" constant="22" id="Q12-oY-pvw"/>
                                                 <constraint firstItem="ycf-Re-rvP" firstAttribute="top" secondItem="TWk-xB-RR9" secondAttribute="top" constant="15" id="VDK-Tw-tp4"/>
+                                                <constraint firstItem="6XD-LA-aTx" firstAttribute="top" secondItem="TWk-xB-RR9" secondAttribute="top" constant="88" id="ZX9-8Y-tIU"/>
                                                 <constraint firstAttribute="bottom" secondItem="ycf-Re-rvP" secondAttribute="bottom" constant="9.5" id="oRd-Yk-aFl"/>
                                                 <constraint firstItem="0QG-Is-1WR" firstAttribute="leading" secondItem="ycf-Re-rvP" secondAttribute="trailing" constant="17" id="qod-a4-xxD"/>
                                                 <constraint firstItem="6XD-LA-aTx" firstAttribute="leading" secondItem="0QG-Is-1WR" secondAttribute="trailing" constant="129" id="sus-rD-QdW"/>
@@ -176,6 +177,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-TH-mOU">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="46"/>
                                                             <state key="normal" title="-"/>
+                                                            <connections>
+                                                                <action selector="removeMoreItems:" destination="rdZ-Au-YZr" eventType="touchUpInside" id="WgJ-Pi-ypY"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-qT-zcl">
                                                             <rect key="frame" x="40" y="0.0" width="10.5" height="46"/>
@@ -186,6 +190,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADI-L9-mb5">
                                                             <rect key="frame" x="60.5" y="0.0" width="30" height="46"/>
                                                             <state key="normal" title="+"/>
+                                                            <connections>
+                                                                <action selector="addMoreItems:" destination="rdZ-Au-YZr" eventType="touchUpInside" id="bh1-LR-PKS"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -228,9 +235,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addMoreToCart" destination="ADI-L9-mb5" id="rn4-HE-OI3"/>
                                             <outlet property="cartImageView" destination="MO6-kf-zoh" id="zb4-4t-7x4"/>
                                             <outlet property="priceLabel" destination="N3W-gn-K25" id="Lb4-5t-hop"/>
                                             <outlet property="quantityLabel" destination="pMP-qT-zcl" id="41n-qI-2Eh"/>
+                                            <outlet property="removeItemFromCart" destination="rnC-TH-mOU" id="6LJ-cM-l5K"/>
                                             <outlet property="titleLabel" destination="HYY-EZ-Vfe" id="dZo-Wy-HtB"/>
                                         </connections>
                                     </tableViewCell>
@@ -347,6 +356,6 @@
         <image name="unselectedHeart" width="40" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FTn-pV-r6y"/>
+        <segue reference="sj0-eB-tQC"/>
     </inferredMetricsTieBreakers>
 </document>

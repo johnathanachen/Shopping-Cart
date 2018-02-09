@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BBBadgeBarButtonItem
 
 class ProductCell: UITableViewCell {
     

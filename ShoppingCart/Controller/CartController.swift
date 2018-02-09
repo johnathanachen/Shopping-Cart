@@ -48,6 +48,47 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tabBarController?.delegate = self
     }
     
+    // TODO: edt quantiy amount then save to core data
+    @IBAction func addMoreItems(_ sender: UIButton) {
+        let title = cartItem[sender.tag].title
+        
+        let fetch = NSFetchRequest<Cart>(entityName: "Cart")
+        let pred = NSPredicate(format: "title == %@", title!)
+        fetch.predicate = pred
+        
+        do {
+            let result = try stack.viewContext.fetch(fetch)
+            result.first?.quantity += Int32(1)
+            print(result.first?.quantity)
+            
+ 
+        } catch let error {
+            print(error)
+        }
+        stack.saveTo(context: stack.viewContext)
+        cartTableView.reloadData()
+    }
+    
+    @IBAction func removeMoreItems(_ sender: UIButton) {
+        let title = cartItem[sender.tag].title
+        
+        let fetch = NSFetchRequest<Cart>(entityName: "Cart")
+        let pred = NSPredicate(format: "title == %@", title!)
+        fetch.predicate = pred
+        
+        do {
+            let result = try stack.viewContext.fetch(fetch)
+            result.first?.quantity -= Int32(1)
+            print(result.first?.quantity)
+        } catch let error {
+            print(error)
+        }
+        stack.saveTo(context: stack.viewContext)
+        cartTableView.reloadData()
+    }
+
+    
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = "No items in cart..."
@@ -78,6 +119,9 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.text = cartItem.title
         cell.priceLabel.text = cartItem.price
         cell.quantityLabel.text = String(cartItem.quantity)
+        
+        cell.addMoreToCart.tag = indexPath.row
+        cell.removeItemFromCart.tag = indexPath.row
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
@@ -113,6 +157,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cartTableView.reloadData()
         }
     }
+    
     
     
 }

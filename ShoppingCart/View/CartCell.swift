@@ -21,6 +21,9 @@ class CartCell: UITableViewCell {
         // Initialization code
     }
 
-
+    @IBOutlet weak var addMoreToCart: UIButton!
+    @IBOutlet weak var removeItemFromCart: UIButton!
+    
+    
 
 }

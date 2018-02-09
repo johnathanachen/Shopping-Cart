@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import BBBadgeBarButtonItem
+
 
 protocol AddProductsControllerDelegate {
     func didAddProduct(product: Cart)
@@ -20,13 +22,35 @@ class AddProductsController: UIViewController, UITableViewDelegate, UITableViewD
     var products = [Products]()
     var cartItems = [Cart]()
     var coreDataStack = CoreDataStack.instance
- 
+    
+    
     var likeButtonToggle: Bool = false
     
+
+    
     override func viewDidLoad() {
+        
+        let cartImage = UIImage(named: "cart")
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: nil, action: nil)
+        
+//        let carBarButton = BadgeBarButtonItem(image: "cart", target: nil, action: #selector(cartButtonTapped))!
+//        self.navigationItem.rightBarButtonItem = carBarButton
+//        let lastBarButton = rightBarButtons?.last
+
+        
+//
+//        let cartBarButtonItem = BBBadgeBarButtonItem(customUIButton: customCartButton)
+//        cartBarButtonItem?.badgeValue = "1"
+//        cartBarButtonItem?.badgeTextColor = UIColor.white
+
+        
         readJson()
+    
     }
     
+    
+    
+  
     
     @IBAction func addItemToCart(_ sender: UIButton) {
         
