@@ -1,3 +1,5 @@
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" height="300" width="auto">
+
 # Adidas Shopping Cart Concept
 
 User experience of an Adidas Shopping Cart
